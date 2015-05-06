@@ -1,0 +1,10 @@
+startup_message off
+vbell off
+defscrollback 10000
+
+attrcolor b ".I"    # allow bold colors - necessary for some reason
+caption always
+caption string "%{= kw} %{= kw}%-Lw%{= wB}%{+b}%n %t%{= kw}%{-b}%{= kw}%+Lw%1`"
+
+term screen-256color
+#term xterm
