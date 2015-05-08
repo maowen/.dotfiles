@@ -100,6 +100,8 @@ let g:ConqueTerm_ToggleKey = '<C-F8>'
 " Search alias
 command! -nargs=+ Cgrep grep -R --include=*.{c,h,cpp,hpp,html,htm} <args> .
 command! -nargs=+ Pgrep grep -R --include=*.{py,pyc,pyx} <args> .
+command! -nargs=+ Rgrep grep -R --include=*.{c,h,cpp,hpp,html,htm,xml,py,pyc,pyx} <args> .
+map <F4> :Rgrep <cword><CR>
 map <C-F12> :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q<CR>
 
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
