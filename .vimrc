@@ -75,9 +75,9 @@ nnoremap <silent> <C-k> <c-w>k
 nnoremap <silent> <C-j> <c-w>j
 
 " Clang autocomplete settings
-let g:clang_user_options="-I."
-let g:clang_use_library=1
-let g:clang_library_path="/usr/local/lib"
+"let g:clang_user_options="-I."
+"let g:clang_use_library=1
+""let g:clang_library_path="/usr/local/lib"
 "let g:clang_jumpto_declaration_key="<C-}>"
 
 " Omni-complete
@@ -96,6 +96,9 @@ let g:ctrlp_working_path_mode = ''
 let g:ConqueTerm_InsertOnEnter=1
 let g:ConqueTerm_CWInsert=1
 let g:ConqueTerm_ToggleKey = '<C-F8>'
+
+" YouCompleteMe
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 " Search alias
 command! -nargs=+ Cgrep grep -R --include=*.{c,h,cpp,hpp,html,htm} <args> .
