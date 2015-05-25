@@ -19,6 +19,7 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'andviro/flake8-vim'
 Plugin 'michalbachowski/vim-wombat256mod'
+Plugin 'fs111/pydoc.vim'
 "Plugin 'Rip-Rip/clang_complete'
 "Plugin 'ivanov/vim-ipython'
 
@@ -38,7 +39,7 @@ syntax enable
 set encoding=utf-8
 set showcmd				" display incomplete commands
 set autoindent				" use indentation of previous line
-set smartindent				" use intelligent indentation for C
+set nosmartindent				" use intelligent indentation for C
 " Turn syntax highlighting on
 set t_Co=256
 syntax on
