@@ -67,19 +67,13 @@ set smartcase				" ... unless they contain at least one captial letter
 "set tags+=~/.vim/tags/gl
 "set tags+=~/.vim/tags/sdl
 "set tags+=~/.vim/tags/qt4
-set tags=.
+"set tags=.
 
 " Move around windows using Ctrl-j, k, h, and l
 nnoremap <silent> <C-l> <c-w>l
 nnoremap <silent> <C-h> <c-w>h
 nnoremap <silent> <C-k> <c-w>k
 nnoremap <silent> <C-j> <c-w>j
-
-" Clang autocomplete settings
-"let g:clang_user_options="-I."
-"let g:clang_use_library=1
-""let g:clang_library_path="/usr/local/lib"
-"let g:clang_jumpto_declaration_key="<C-}>"
 
 " Omni-complete
 set completeopt+=longest
@@ -92,11 +86,6 @@ nnoremap <silent> <F8> :TagbarToggle<CR>
 let g:netrw_liststyle=3
 let g:netrw_browse_split=4 " Open file in previous buffer
 let g:ctrlp_working_path_mode = ''
-
-" ConqueTerm
-let g:ConqueTerm_InsertOnEnter=1
-let g:ConqueTerm_CWInsert=1
-let g:ConqueTerm_ToggleKey = '<C-F8>'
 
 " YouCompleteMe
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
