@@ -40,7 +40,9 @@ branch=$(git branch --color=never | sed -ne 's/* //p')
 # Look for Subversion status
 elif svn info &>/dev/null ;  then
 dirty=$(svn status -q)
-branch=$(svn info | grep "Relative URL" | sed -e 's/.*\///')
+wcroot=$(svn info | grep 'Working Copy Root Path:' | grep "/.*$")
+branch=$(svn info $wcroot | grep '^URL:' | grep -o '[^/]*$')
+
 fi
 
 if [[ ! -z "$branch" ]]; then
@@ -53,7 +55,7 @@ fi
 vcs_info="$LCYAN($BOLD$status_color$branch$LCYAN)"
 fi
 
-PS1="${debian_chroot:+($debian_chroot)}$LGREEN\h$LBLUE \w ${vcs_info}$LBLUE\$$RESET"
+PS1="${debian_chroot:+($debian_chroot)}$LGREEN\h$LBLUE \w ${vcs_info}$LBLUE\$$RESET "
 }
 
 
