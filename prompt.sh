@@ -40,7 +40,7 @@ branch=$(git branch --color=never | sed -ne 's/* //p')
 # Look for Subversion status
 elif svn info &>/dev/null ;  then
 dirty=$(svn status -q)
-wcroot=$(svn info | grep 'Working Copy Root Path:' | grep "/.*$")
+wcroot=$(svn info | grep 'Working Copy Root Path:' | grep -o "/.*$")
 branch=$(svn info $wcroot | grep '^URL:' | grep -o '[^/]*$')
 
 fi
