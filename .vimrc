@@ -35,6 +35,16 @@ Plugin 'python.vim'
 " NOTE: comments after Plugin commands are not allowed.
 
 filetype plugin indent on		" load file type plugins + indentation
+
+" Use actual tab chars in Makefiles
+autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
+
+" For everything else, use a tab width of 4 space chars.
+set tabstop=4				" show existing tab with 4 spaces width
+set shiftwidth=4			" when indenting with '>', use 4 spaces width
+set softtabstop=4           " tab width in insert mode is 4 spaces
+set expandtab				"expand tabs to spaces
+
 syntax enable
 set encoding=utf-8
 set showcmd				" display incomplete commands
@@ -49,11 +59,7 @@ set showmatch				" highligh matching braces
 " intelligent comments set comments=sl:/*,mg:\ *,elx:\ */
 "" Whitespace
 set nowrap
-set tabstop=4				" tab width is 4 spaces
-set softtabstop=4           " tab width in insert mode is 4 spaces
-set shiftwidth=4			" indent also with 4 spaces
-set expandtab				"expand tabs to spaces
-set textwidth=80			" wrap lines at 80 chars.
+" set textwidth=80			" wrap lines at 80 chars.
 set backspace=indent,eol,start		" backspace through everything in insert mode
 
 "" Searching
@@ -88,13 +94,14 @@ let g:netrw_browse_split=4 " Open file in previous buffer
 let g:ctrlp_working_path_mode = ''
 
 " YouCompleteMe
-nnoremap <leader>jd :YcmCompleter GoTo<CR>
+nnoremap <leader>gd :YcmCompleter GoTo<CR>
 
 " Search alias
-command! -nargs=+ Cgrep grep -R --include=*.{c,h,cpp,hpp,html,htm} <args> .
+command! -nargs=+ Cgrep grep -R --include=*.{c,h,cc,cpp,hpp,html,htm} <args> .
 command! -nargs=+ Pgrep grep -R --include=*.{py,pyc,pyx} <args> .
-command! -nargs=+ Rgrep grep -R --include=*.{c,h,cpp,hpp,html,htm,xml,py,pyc,pyx} <args> .
+command! -nargs=+ Rgrep grep -R --include=*.{c,h,cc,cpp,hpp,html,htm,xml,py,pyc,pyx} <args> .
 map <F4> :Rgrep <cword><CR>
+map <C-F4> :Cgrep <cword><CR>
 map <C-F12> :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q<CR>
 
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
